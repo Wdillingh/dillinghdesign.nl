@@ -3445,8 +3445,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
 		transition: background-color 0.2s ease;
-		background: #3d3d3d;
-		border-bottom: 3px solid #ff4700;
+		background: transparent;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
