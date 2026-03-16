@@ -161,6 +161,18 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<script>
+window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    if (window.scrollY > 50) {
+        header.style.background = '#2d2d2d';
+        header.style.borderBottom = '3px solid #ff4700';
+    } else {
+        header.style.background = 'transparent';
+        header.style.borderBottom = 'none';
+    }
+});
+</script>
 
 	</body>
 </html>
