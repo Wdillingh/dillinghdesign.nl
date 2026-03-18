@@ -6,6 +6,362 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* ── Koppen ── */
+			.wrapper h3,
+			.inner h3 {
+				color: #ff4700 !important;
+			}
+			.wrapper h2,
+			.inner h2 {
+				color: #ff4700 !important;
+			}
+
+			/* ── Header logo ── */
+			#header a img {
+				border: none;
+				outline: none;
+			}
+			#header a {
+				text-decoration: none;
+			}
+
+			/* ── Layout: twee kolommen ── */
+			.contact-layout {
+				display: grid;
+				grid-template-columns: 1fr 1.6fr;
+				gap: 4em;
+				align-items: start;
+			}
+
+			@media (max-width: 768px) {
+				.contact-layout {
+					grid-template-columns: 1fr;
+					gap: 2.5em;
+				}
+			}
+
+			/* ── Contactgegevens blok ── */
+			.contact-info {
+				display: flex;
+				flex-direction: column;
+				gap: 1.6em;
+			}
+
+			.contact-info-item {
+				display: flex;
+				align-items: flex-start;
+				gap: 1em;
+				padding: 1.2em 1.4em;
+				background: rgba(255,255,255,0.04);
+				border: 1px solid rgba(255,255,255,0.07);
+				border-left: 3px solid #ff4700;
+				border-radius: 4px;
+			}
+
+			.contact-info-item .ci-icon {
+				color: #ff4700;
+				font-size: 1.3em;
+				margin-top: 0.1em;
+				flex-shrink: 0;
+			}
+
+			.contact-info-item .ci-text {
+				display: flex;
+				flex-direction: column;
+				gap: 0.15em;
+			}
+
+			.contact-info-item .ci-label {
+				font-size: 0.72em;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: rgba(255,255,255,0.35);
+			}
+
+			.contact-info-item .ci-value {
+				font-size: 0.92em;
+				color: #ccc;
+				line-height: 1.5;
+			}
+
+			.contact-info-item .ci-value a {
+				color: #ccc;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(255,71,0,0.3);
+				transition: color 0.2s, border-color 0.2s;
+			}
+
+			.contact-info-item .ci-value a:hover {
+				color: #ff4700;
+				border-color: #ff4700;
+			}
+
+			.ci-placeholder {
+				color: rgba(255,255,255,0.25) !important;
+				font-style: italic;
+			}
+
+			/* ── Formulier ── */
+			.contact-form {
+				display: flex;
+				flex-direction: column;
+				gap: 1.2em;
+			}
+
+			.form-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.2em;
+			}
+
+			@media (max-width: 480px) {
+				.form-row {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.form-field {
+				display: flex;
+				flex-direction: column;
+				gap: 0.4em;
+			}
+
+			.form-field label {
+				font-size: 0.78em;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: rgba(255,255,255,0.45);
+			}
+
+			.form-field input,
+			.form-field textarea {
+				background: rgba(255,255,255,0.05);
+				border: 1px solid rgba(255,255,255,0.12);
+				border-radius: 4px;
+				color: #ccc;
+				padding: 0.75em 1em;
+				font-size: 0.9em;
+				width: 100%;
+				box-sizing: border-box;
+				transition: border-color 0.25s, background 0.25s;
+				outline: none;
+				font-family: inherit;
+			}
+
+			.form-field input:focus,
+			.form-field textarea:focus {
+				border-color: #ff4700;
+				background: rgba(255,71,0,0.05);
+			}
+
+			.form-field input::placeholder,
+			.form-field textarea::placeholder {
+				color: rgba(255,255,255,0.2);
+			}
+
+			.form-field textarea {
+				resize: vertical;
+				min-height: 130px;
+			}
+
+			/* Verzendknop */
+			.form-submit {
+				display: flex;
+				align-items: center;
+				gap: 1em;
+				margin-top: 0.5em;
+			}
+
+			/* Succes melding */
+			#form-success {
+				display: none;
+				padding: 0.9em 1.2em;
+				background: rgba(255,71,0,0.1);
+				border: 1px solid rgba(255,71,0,0.3);
+				border-radius: 4px;
+				color: #ff4700;
+				font-size: 0.88em;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html"><img src="images/logo-DD.svg" alt="Dillingh Design" style="height: 2em; vertical-align: middle; margin-left: 0.5em;" /></a>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="diensten.html">Diensten</a></li>
+									<li><a href="portfolio.html">Portfolio</a></li>
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<article id="main">
+
+				<!-- Page Banner -->
+				<header>
+					<h2 style="color: #ff4700;">Contact</h2>
+					<p>Heeft u een vraag of wilt u een offerte? —<br />
+					Wij horen graag van u.</p>
+				</header>
+
+				<!-- Contact sectie -->
+				<section class="wrapper style5" style="background: #1e1e1e; color: #ccc;">
+					<div class="inner">
+
+						<h3>Neem contact op</h3>
+						<p>Vul het formulier in en wij nemen zo snel mogelijk contact met u op. Liever direct bellen of mailen? Onze gegevens vindt u hieronder.</p>
+						<hr />
+
+						<div class="contact-layout">
+
+							<!-- Contactgegevens -->
+							<div class="contact-info">
+
+								<div class="contact-info-item">
+									<span class="ci-icon icon solid fa-map-marker-alt"></span>
+									<div class="ci-text">
+										<span class="ci-label">Adres</span>
+										<span class="ci-value">
+											Dillingh Design<br />
+											Van Aylvalaan 7<br />
+											8454 KM Mildam
+										</span>
+									</div>
+								</div>
+
+								<div class="contact-info-item">
+									<span class="ci-icon icon solid fa-envelope"></span>
+									<div class="ci-text">
+										<span class="ci-label">E-mail</span>
+										<span class="ci-value">
+											<a href="mailto:info@dillinghdesign.nl">info@dillinghdesign.nl</a>
+										</span>
+									</div>
+								</div>
+
+								<div class="contact-info-item">
+									<span class="ci-icon icon solid fa-phone"></span>
+									<div class="ci-text">
+										<span class="ci-label">Telefoon</span>
+										<span class="ci-value"><a href="tel:+31648465466">06 484 654 66</a></span>
+									</div>
+								</div>
+
+								<div class="contact-info-item">
+									<span class="ci-icon icon solid fa-building"></span>
+									<div class="ci-text">
+										<span class="ci-label">KvK-nummer</span>
+										<span class="ci-value ci-placeholder">Nog in te vullen</span>
+									</div>
+								</div>
+
+							</div>
+							<!-- /contact-info -->
+
+							<!-- Contactformulier -->
+							<div>
+								<form class="contact-form" action="mailto:info@dillinghdesign.nl" method="post" enctype="text/plain" id="contact-form">
+
+									<div class="form-row">
+										<div class="form-field">
+											<label for="naam">Naam *</label>
+											<input type="text" id="naam" name="naam" placeholder="Uw naam" required />
+										</div>
+										<div class="form-field">
+											<label for="telefoon">Telefoonnummer</label>
+											<input type="tel" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer" />
+										</div>
+									</div>
+
+									<div class="form-field">
+										<label for="email">E-mailadres *</label>
+										<input type="email" id="email" name="email" placeholder="Uw e-mailadres" required />
+									</div>
+
+									<div class="form-field">
+										<label for="bericht">Bericht *</label>
+										<textarea id="bericht" name="bericht" placeholder="Omschrijf uw vraag of project..." required></textarea>
+									</div>
+
+									<div class="form-submit">
+										<button type="submit" class="button primary">Verstuur bericht</button>
+										<div id="form-success">✓ Uw bericht is verzonden!</div>
+									</div>
+
+								</form>
+							</div>
+							<!-- /formulier -->
+
+						</div>
+						<!-- /contact-layout -->
+
+					</div>
+				</section>
+
+			</article>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="mailto:info@dillinghdesign.nl" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Dillingh Design</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+			// ── Header scroll effect ──
+			window.addEventListener('scroll', function() {
+				var header = document.getElementById('header');
+				if (window.scrollY > 50) {
+					header.style.background = '#2d2d2d';
+					header.style.borderBottom = '3px solid #ff4700';
+				} else {
+					header.style.background = 'transparent';
+					header.style.borderBottom = 'none';
+				}
+			});
+		</script>
+
+	</body>
+</html><!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Contact – Dillingh Design</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
