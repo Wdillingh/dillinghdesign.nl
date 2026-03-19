@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<title>Contact – Dillingh Design</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	<style>
+		:root {
+			--orange: #ff4700;
+			--orange-dim: rgba(255,71,0,0.15);
+			--orange-glow: rgba(255,71,0,0.4);
+			--dark: #111111;
+			--dark2: #1a1a1a;
+			--dark3: #222222;
+			--border: rgba(255,255,255,0.07);
+			--text: #e8e8e8;
+			--text-dim: #888;
+		}
+
+		*, *::before, *::after { box-sizing: border-box; }
+
+		body.contact-page {
+			background: var(--dark);
+			color: var(--text);
+			font-family: 'Barlow', sans-serif;
+			font-weight: 300;
+			margin: 0;
+			overflow-x: hidden;
+		}
+
+		/* ── HERO BAND ── */
+		.contact-hero {
+			position: relative;
+			padding: 9rem 2rem 5rem;
+			text-align: center;
+			overflow: hidden;
+		}
+
+		.contact-hero::before {
+			content: 'CONTACT';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-family: 'Barlow Condensed', sans-serif;
+			font-weight: 900;
+			font-size: clamp(5rem, 20vw, 18rem);
+			color: rgba(255,71,0,0.04);
+			letter-spacing: 0.1em;
+			white-space: nowrap;
+			pointer-events: none;
+			user-select: none;
+		}
+
+		.contact-hero h1 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-weight: 900;
+			font-size: clamp(2.5rem, 6vw, 5rem);
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			margin: 0 0 0.5rem;
+			line-height: 1;
+		}
+
+		.contact-hero h1 span { color: var(--orange); }
+
+		.contact-hero p {
+			font-size: 1.1rem;
+			color: var(--text-dim);
+			max-width: 500px;
+			margin: 0 auto;
+			letter-spacing: 0.02em;
+		}
+
+		.orange-line {
+			width: 60px;
+			height: 3px;
+			background: var(--orange);
+			margin: 1.5rem auto 0;
+		}
+
+		/* ── MAIN GRID ── */
+		.contact-grid {
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 2rem 2rem 6rem;
+			display: grid;
+			grid-template-columns: 1fr 1.4fr;
+			gap: 3rem;
+		}
+
+		@media (max-width: 768px) {
+			.contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+		}
+
+		/* ── LEFT COLUMN ── */
+		.contact-info h2 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-weight: 700;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			color: var(--orange);
+			margin: 0 0 1.5rem;
+		}
+
+		.info-block {
+			margin-bottom: 2rem;
+		}
+
+		.info-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+			padding: 1rem 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.info-item:last-child { border-bottom: none; }
+
+		.info-icon {
+			width: 36px;
+			height: 36px;
+			background: var(--orange-dim);
+			border: 1px solid var(--orange-glow);
+			border-radius: 6px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			color: var(--orange);
+			font-size: 0.85rem;
+		}
+
+		.info-label {
+			font-size: 0.7rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: var(--text-dim);
+			margin-bottom: 0.2rem;
+		}
+
+		.info-value {
+			font-size: 0.95rem;
+			color: var(--text);
+			font-weight: 400;
+		}
+
+		/* ── SOCIAL MEDIA ── */
+		.social-section h2 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-weight: 700;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			color: var(--orange);
+			margin: 0 0 1rem;
+		}
+
+		.social-cards {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.social-card {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			padding: 0.9rem 1.2rem;
+			background: var(--dark2);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			text-decoration: none;
+			color: var(--text);
+			transition: all 0.25s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.social-card::before {
+			content: '';
+			position: absolute;
+			left: 0; top: 0; bottom: 0;
+			width: 3px;
+			background: var(--orange);
+			transform: scaleY(0);
+			transition: transform 0.25s ease;
+		}
+
+		.social-card:hover {
+			border-color: var(--orange-glow);
+			background: var(--dark3);
+			transform: translateX(4px);
+			color: var(--text);
+			text-decoration: none;
+		}
+
+		.social-card:hover::before { transform: scaleY(1); }
+
+		.social-icon {
+			width: 38px;
+			height: 38px;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1rem;
+			flex-shrink: 0;
+		}
+
+		.social-icon.fb { background: #1877f2; }
+		.social-icon.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+		.social-icon.em { background: var(--orange); }
+
+		.social-name { font-weight: 500; font-size: 0.95rem; }
+		.social-handle { font-size: 0.8rem; color: var(--text-dim); }
+
+		.social-arrow {
+			margin-left: auto;
+			color: var(--text-dim);
+			font-size: 0.8rem;
+			transition: color 0.2s;
+		}
+
+		.social-card:hover .social-arrow { color: var(--orange); }
+
+		/* ── MAP ── */
+		.map-section {
+			margin-top: 2rem;
+		}
+
+		.map-section h2 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-weight: 700;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			color: var(--orange);
+			margin: 0 0 1rem;
+		}
+
+		.map-wrapper {
+			border-radius: 12px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			position: relative;
+		}
+
+		.map-wrapper iframe {
+			width: 100%;
+			height: 220px;
+			display: block;
+			filter: grayscale(80%) invert(90%) hue-rotate(180deg);
+			border: none;
+		}
+
+		.map-badge {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			background: rgba(17,17,17,0.9);
+			border: 1px solid var(--orange);
+			color: var(--text);
+			font-size: 0.75rem;
+			padding: 0.3rem 0.7rem;
+			border-radius: 20px;
+			letter-spacing: 0.05em;
+		}
+
+		.map-badge span { color: var(--orange); font-weight: 600; }
+
+		/* ── FORM ── */
+		.contact-form-wrap {
+			background: var(--dark2);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 2.5rem;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.contact-form-wrap::before {
+			content: '';
+			position: absolute;
+			top: 0; left: 0; right: 0;
+			height: 3px;
+			background: linear-gradient(90deg, transparent, var(--orange), transparent);
+		}
+
+		.form-title {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-weight: 700;
+			font-size: 1.6rem;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			margin: 0 0 0.3rem;
+		}
+
+		.form-title span { color: var(--orange); }
+
+		.form-sub {
+			font-size: 0.85rem;
+			color: var(--text-dim);
+			margin-bottom: 2rem;
+		}
+
+		.form-row {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+
+		@media (max-width: 500px) {
+			.form-row { grid-template-columns: 1fr; }
+		}
+
+		.field {
+			position: relative;
+			margin-bottom: 1.2rem;
+		}
+
+		.field label {
+			display: block;
+			font-size: 0.7rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: var(--text-dim);
+			margin-bottom: 0.4rem;
+		}
+
+		.field input,
+		.field textarea {
+			width: 100%;
+			background: rgba(255,255,255,0.04);
+			border: 1px solid rgba(255,255,255,0.1);
+			border-radius: 8px;
+			color: var(--text);
+			font-family: 'Barlow', sans-serif;
+			font-size: 0.95rem;
+			padding: 0.8rem 1rem;
+			transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+			outline: none;
+			-webkit-appearance: none;
+		}
+
+		.field input:focus,
+		.field textarea:focus {
+			border-color: var(--orange);
+			background: rgba(255,71,0,0.05);
+			box-shadow: 0 0 0 3px rgba(255,71,0,0.1);
+		}
+
+		.field textarea {
+			height: 130px;
+			resize: vertical;
+		}
+
+		/* Subject pills */
+		.subject-label {
+			font-size: 0.7rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: var(--text-dim);
+			margin-bottom: 0.6rem;
+			display: block;
+		}
+
+		.subject-pills {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-bottom: 1.2rem;
+		}
+
+		.pill {
+			padding: 0.35rem 0.85rem;
+			border-radius: 20px;
+			border: 1px solid rgba(255,255,255,0.15);
+			background: transparent;
+			color: var(--text-dim);
+			font-family: 'Barlow', sans-serif;
+			font-size: 0.8rem;
+			cursor: pointer;
+			transition: all 0.2s;
+		}
+
+		.pill:hover { border-color: var(--orange); color: var(--text); }
+		.pill.active { border-color: var(--orange); background: var(--orange-dim); color: var(--orange); font-weight: 500; }
+
+		/* Submit button */
+		.submit-btn {
+			width: 100%;
+			padding: 1rem;
+			background: var(--orange);
+			color: #fff;
+			border: none;
+			border-radius: 8px;
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 1.1rem;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: background 0.2s, transform 0.1s;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.submit-btn:hover { background: #e03d00; }
+		.submit-btn:active { transform: scale(0.98); }
+
+		.submit-btn .btn-text { transition: opacity 0.2s; }
+		.submit-btn.sending .btn-text { opacity: 0; }
+
+		.btn-loader {
+			position: absolute;
+			top: 50%; left: 50%;
+			transform: translate(-50%, -50%);
+			display: none;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.submit-btn.sending .btn-loader { display: flex; }
+
+		.dot-flashing {
+			display: flex; gap: 5px;
+		}
+
+		.dot-flashing span {
+			width: 7px; height: 7px;
+			background: white;
+			border-radius: 50%;
+			animation: dotFlash 1s infinite;
+		}
+
+		.dot-flashing span:nth-child(2) { animation-delay: 0.2s; }
+		.dot-flashing span:nth-child(3) { animation-delay: 0.4s; }
+
+		@keyframes dotFlash {
+			0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+			40% { opacity: 1; transform: scale(1); }
+		}
+
+		/* Success overlay */
+		.success-overlay {
+			position: absolute;
+			inset: 0;
+			background: var(--dark2);
+			border-radius: 16px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.5s ease;
+			text-align: center;
+			padding: 2rem;
+		}
+
+		.success-overlay.show {
+			opacity: 1;
+			pointer-events: all;
+		}
+
+		.checkmark-circle {
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			border: 3px solid var(--orange);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 1.5rem;
+			animation: popIn 0.4s ease 0.2s both;
+		}
+
+		@keyframes popIn {
+			from { transform: scale(0.5); opacity: 0; }
+			to { transform: scale(1); opacity: 1; }
+		}
+
+		.checkmark-circle svg {
+			width: 32px; height: 32px;
+			stroke: var(--orange);
+			fill: none;
+			stroke-width: 3;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
+
+		.check-path {
+			stroke-dasharray: 50;
+			stroke-dashoffset: 50;
+			animation: drawCheck 0.4s ease 0.5s forwards;
+		}
+
+		@keyframes drawCheck {
+			to { stroke-dashoffset: 0; }
+		}
+
+		.success-overlay h3 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 1.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--orange);
+			margin: 0 0 0.5rem;
+			animation: fadeUp 0.4s ease 0.6s both;
+		}
+
+		.success-overlay p {
+			color: var(--text-dim);
+			font-size: 0.95rem;
+			animation: fadeUp 0.4s ease 0.7s both;
+		}
+
+		.success-overlay .back-btn {
+			margin-top: 1.5rem;
+			padding: 0.6rem 1.5rem;
+			border: 1px solid var(--orange);
+			border-radius: 6px;
+			color: var(--orange);
+			background: transparent;
+			font-family: 'Barlow', sans-serif;
+			font-size: 0.85rem;
+			cursor: pointer;
+			transition: all 0.2s;
+			animation: fadeUp 0.4s ease 0.8s both;
+		}
+
+		.success-overlay .back-btn:hover {
+			background: var(--orange);
+			color: white;
+		}
+
+		@keyframes fadeUp {
+			from { transform: translateY(10px); opacity: 0; }
+			to { transform: translateY(0); opacity: 1; }
+		}
+
+		/* ── FOOTER BAND ── */
+		.contact-footer-band {
+			border-top: 1px solid var(--border);
+			text-align: center;
+			padding: 2rem;
+			font-size: 0.8rem;
+			color: var(--text-dim);
+		}
+
+		/* ── HEADER overrides ── */
+		#header {
+			background: transparent;
+			transition: background 0.3s, border-bottom 0.3s;
+		}
+	</style>
+</head>
+
+<body class="is-preload contact-page">
+<div id="page-wrapper">
+
+	<!-- Header (same as site) -->
+	<header id="header" class="alt">
+		<a href="index.html"><img src="images/logo-DD.svg" alt="Dillingh Design" style="height:2em;vertical-align:middle;margin-left:.5em;" /></a>
+		<nav id="nav">
+			<ul>
+				<li class="special">
+					<a href="#menu" class="menuToggle"><span>Menu</span></a>
+					<div id="menu">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="diensten.html">Diensten</a></li>
+							<li><a href="portfolio.html">Portfolio</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Hero -->
+	<section class="contact-hero">
+		<h1><span>Neem</span> contact op</h1>
+		<p>Heb je een vraag, een idee of wil je een vrijblijvende offerte? We horen graag van je.</p>
+		<div class="orange-line"></div>
+	</section>
+
+	<!-- Main content -->
+	<div class="contact-grid">
+
+		<!-- LEFT: info + socials + map -->
+		<div>
+			<!-- Contact info -->
+			<div class="contact-info">
+				<h2>Bereikbaarheid</h2>
+				<div class="info-block">
+					<div class="info-item">
+						<div class="info-icon">✉</div>
+						<div>
+							<div class="info-label">E-mail</div>
+							<div class="info-value">info@dillinghdesign.nl</div>
+						</div>
+					</div>
+					<div class="info-item">
+						<div class="info-icon">📞</div>
+						<div>
+							<div class="info-label">Telefoon</div>
+							<div class="info-value">+31 (0)6 00 000 000</div>
+						</div>
+					</div>
+					<div class="info-item">
+						<div class="info-icon">📍</div>
+						<div>
+							<div class="info-label">Regio</div>
+							<div class="info-value">Friesland & omgeving</div>
+						</div>
+					</div>
+					<div class="info-item">
+						<div class="info-icon">🕐</div>
+						<div>
+							<div class="info-label">Beschikbaar</div>
+							<div class="info-value">Ma–Vr: 08:00 – 18:00</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Social media -->
+			<div class="social-section">
+				<h2>Volg ons</h2>
+				<div class="social-cards">
+					<a href="#" class="social-card">
+						<div class="social-icon fb">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+						</div>
+						<div>
+							<div class="social-name">Facebook</div>
+							<div class="social-handle">Dillingh Design</div>
+						</div>
+						<span class="social-arrow">→</span>
+					</a>
+					<a href="#" class="social-card">
+						<div class="social-icon ig">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+						</div>
+						<div>
+							<div class="social-name">Instagram</div>
+							<div class="social-handle">@dillinghdesign</div>
+						</div>
+						<span class="social-arrow">→</span>
+					</a>
+					<a href="mailto:info@dillinghdesign.nl" class="social-card">
+						<div class="social-icon em">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+						</div>
+						<div>
+							<div class="social-name">E-mail</div>
+							<div class="social-handle">info@dillinghdesign.nl</div>
+						</div>
+						<span class="social-arrow">→</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- Map -->
+			<div class="map-section">
+				<h2>Werkgebied</h2>
+				<div class="map-wrapper">
+					<iframe
+						src="https://www.openstreetmap.org/export/embed.html?bbox=4.5%2C52.8%2C6.5%2C53.6&layer=mapnik"
+						allowfullscreen
+						loading="lazy"
+						title="Werkgebied Friesland">
+					</iframe>
+					<div class="map-badge">📍 Werkgebied: <span>Friesland & omgeving</span></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- RIGHT: form -->
+		<div class="contact-form-wrap">
+			<div class="form-title">Stuur een <span>bericht</span></div>
+			<div class="form-sub">We reageren doorgaans binnen één werkdag.</div>
+
+			<!-- Subject pills -->
+			<span class="subject-label">Onderwerp</span>
+			<div class="subject-pills">
+				<button class="pill active" type="button" onclick="selectPill(this)">Offerte aanvraag</button>
+				<button class="pill" type="button" onclick="selectPill(this)">Grafisch ontwerp</button>
+				<button class="pill" type="button" onclick="selectPill(this)">Folie toepassing</button>
+				<button class="pill" type="button" onclick="selectPill(this)">Belettering</button>
+				<button class="pill" type="button" onclick="selectPill(this)">Anders</button>
+			</div>
+
+			<div class="form-row">
+				<div class="field">
+					<label for="naam">Naam</label>
+					<input type="text" id="naam" placeholder="Uw naam" />
+				</div>
+				<div class="field">
+					<label for="telefoon">Telefoon</label>
+					<input type="tel" id="telefoon" placeholder="+31 6 00 000 000" />
+				</div>
+			</div>
+
+			<div class="field">
+				<label for="email">E-mailadres</label>
+				<input type="email" id="email" placeholder="uw@email.nl" />
+			</div>
+
+			<div class="field">
+				<label for="bericht">Bericht</label>
+				<textarea id="bericht" placeholder="Vertel ons over uw project of vraag..."></textarea>
+			</div>
+
+			<button class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+				<span class="btn-text">Verstuur bericht →</span>
+				<span class="btn-loader">
+					<span style="font-size:0.85rem;letter-spacing:0.1em;">Versturen</span>
+					<span class="dot-flashing">
+						<span></span><span></span><span></span>
+					</span>
+				</span>
+			</button>
+
+			<!-- Success overlay -->
+			<div class="success-overlay" id="successOverlay">
+				<div class="checkmark-circle">
+					<svg viewBox="0 0 32 32">
+						<polyline class="check-path" points="6,16 13,23 26,9"/>
+					</svg>
+				</div>
+				<h3>Bericht verzonden!</h3>
+				<p>Bedankt voor je bericht.<br>We nemen zo snel mogelijk contact met je op.</p>
+				<button class="back-btn" onclick="resetForm()">Nog een bericht sturen</button>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<ul class="icons">
+			<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+			<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+			<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+		</ul>
+		<ul class="copyright">
+			<li>&copy; Dillingh Design</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul>
+	</footer>
+
+</div><!-- /page-wrapper -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+// Sticky header (same as index)
+window.addEventListener('scroll', function() {
+	var header = document.getElementById('header');
+	if (window.scrollY > 50) {
+		header.style.background = '#2d2d2d';
+		header.style.borderBottom = '3px solid #ff4700';
+	} else {
+		header.style.background = 'transparent';
+		header.style.borderBottom = 'none';
+	}
+});
+
+// Subject pill selection
+function selectPill(el) {
+	document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+	el.classList.add('active');
+}
+
+// Form submit with animation
+function handleSubmit() {
+	const naam = document.getElementById('naam').value.trim();
+	const email = document.getElementById('email').value.trim();
+	const bericht = document.getElementById('bericht').value.trim();
+
+	if (!naam || !email || !bericht) {
+		// shake empty fields
+		[{id:'naam',val:naam},{id:'email',val:email},{id:'bericht',val:bericht}].forEach(f => {
+			if (!f.val) {
+				const el = document.getElementById(f.id);
+				el.style.borderColor = '#ff4700';
+				el.style.animation = 'shake 0.3s ease';
+				setTimeout(() => { el.style.animation = ''; }, 400);
+			}
+		});
+		return;
+	}
+
+	const btn = document.getElementById('submitBtn');
+	btn.classList.add('sending');
+	btn.disabled = true;
+
+	setTimeout(() => {
+		btn.classList.remove('sending');
+		document.getElementById('successOverlay').classList.add('show');
+	}, 1800);
+}
+
+function resetForm() {
+	document.getElementById('successOverlay').classList.remove('show');
+	document.getElementById('submitBtn').disabled = false;
+	document.getElementById('naam').value = '';
+	document.getElementById('email').value = '';
+	document.getElementById('telefoon').value = '';
+	document.getElementById('bericht').value = '';
+	document.querySelectorAll('.pill').forEach((p,i) => p.classList.toggle('active', i===0));
+}
+</script>
+
+<style>
+@keyframes shake {
+	0%,100% { transform: translateX(0); }
+	25% { transform: translateX(-6px); }
+	75% { transform: translateX(6px); }
+}
+</style>
+
+</body>
+</html>
